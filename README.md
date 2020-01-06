@@ -1,4 +1,4 @@
-# two_bits_predictor
+# _bits_history_predictor
 ## 1.本程式為實作2 bits history分支預測器
 * 使用語言 Java(JRE JavaSE-12)
 * 開發及編譯工具 Eclipse
@@ -10,7 +10,7 @@
  ## 2.執行結果參考如下
 ![image](3.jpg "執行結果")
  ## 3.程式說明
- * 程式5~75行:為主程式，負責設定使用者提供之初始變數，如輸入T、N序列、SN初始狀態及History等，完成後將上述變數，傳入Method運算，並列印相關排版文字及線條。        
+ * 程式5~75行:為主程式，負責設定使用者提供之初始變數，如輸入T、N序列、SN初始狀態及History等，完成後將上述變數，傳入Method運算，並列印相關排版文字及線條，詳細說明如程式內文註解說明。        
    
    <pre><code>public class two_bits_predictor {
 	public static void main(String[] args) {// TODO Auto-generated method stub
@@ -83,7 +83,7 @@
 			System.out.println("請重新執行程式!!");
 
 	}</code></pre>
- * Method I "inputSeri" (81~98行):取得使用者輸入T或N，並儲存至input陣列
+ * Method I : inputSeri  (81~98行):取得使用者輸入T或N，並儲存至input陣列
  <pre><code>public static int[] inputSeri(Scanner scan) { // 取得使用者輸入T或N，並儲存至input陣列
 		System.out.println("請輸入T、N序列:");
 		String s = scan.next().toUpperCase();
@@ -102,7 +102,7 @@
 		}
 		return input;
 	}</code></pre>
-* Method II "stateSeri" (100~115行):取得使用者輸入state初始狀態，並儲存至state陣列
+* Method II : stateSeri  (100~115行):取得使用者輸入state初始狀態，並儲存至state陣列
  <pre><code>public static int[] stateSeri(Scanner scan) { // 取得使用者輸入state初始狀態，並儲存至state陣列
 		System.out.println("請輸入4個初始狀態: (提示SN請輸入0、WN請輸入1、WT請輸入2、ST請輸入3)");
 		int[] input = new int[4];
@@ -119,7 +119,7 @@
 		}
 		return input;
 	}</code></pre>
-* Method III "hisSeri" (117~149行):取得使用者輸入history初始狀態，並儲存至history陣列
+* Method III : hisSeri  (117~149行):取得使用者輸入history初始狀態，並儲存至history陣列
  <pre><code>public static int[] hisSeri(Scanner scan) { // 取得使用者輸入history初始狀態，並儲存至history陣列
 		System.out.println("請輸入history個初始狀態: (提示00請輸入0、01請輸入1、10請輸入2、11請輸入3)");
 		int[] input = new int[2];
@@ -153,13 +153,13 @@
 
 		return input;
 	}</code></pre>
-* Method IV "his_next" (151~155行):計算2-bit history
+* Method IV : his_next  (151~155行):計算2-bit history
  <pre><code>public static int[] his_next(int u[], int k) { // 計算2-bit history
 		u[0] = u[1];
 		u[1] = k;
 		return u;
 	}</code></pre>
-* Method V "Sta2stringt" (157~172行):轉換state成文字
+* Method V : Sta2stringt  (157~172行):轉換state成文字
  <pre><code>public static void Sta2string(int s) { // 轉換state成文字
 		switch (s) {
 		case 0:
@@ -176,7 +176,7 @@
 			break;
 		}
 	}</code></pre>
-* Method VI "predict_1" (174~192行):計算預測值為T或N
+* Method VI : predict_1  (174~192行):計算預測值為T或N
  <pre><code>public static int predict_1(int his[], int s[]) { // 計算預測值為T或N
 		int p;
 		int pre = 0;
@@ -196,7 +196,7 @@
 		}
 		return pre;
 	}</code></pre>
-* Method VII "predict_2" (194~214行):計算預測值為T或N，並列印
+* Method VII : predict_2  (194~214行):計算預測值為T或N，並列印
  <pre><code>public static int predict_2(int his[], int s[]) { // 計算預測值為T或N，並列印
 		int p;
 		int pre = 0;
@@ -218,7 +218,7 @@
 		}
 		return pre;
 	}</code></pre>
-* Method VIII "input2string" (216~225行):轉換input成文字
+* Method VIII : input2string  (216~225行):轉換input成文字
  <pre><code>public static void input2string(int s) { // 轉換input成文字
 		switch (s) {
 		case 0:
@@ -229,7 +229,7 @@
 			break;
 		}
 	}</code></pre>
-* Method IX "modify_at" (227~239行):修正state位置
+* Method IX : modify_at  (227~239行):修正state位置
  <pre><code>public static int modify_at(int his[]) { // 修正state位置
 		int at;
 		String str = Integer.toString(his[0]) + Integer.toString(his[1]);
@@ -243,7 +243,7 @@
 			at = 3;
 		return at;
 	}</code></pre>
-* Method X "modify_sta" (241~250行):修正state的值
+* Method X : modify_sta (241~250行):修正state的值
  <pre><code>public static int modify_sta(int pre, int inp) { // 修正state的值
 		int modi;
 		if (inp == 1)
@@ -254,7 +254,7 @@
 			modi = 0;
 		return modi;
 	}</code></pre>
-* Method XI "misprediction" (252~261行):計算錯誤機率
+* Method XI : misprediction (252~261行):計算錯誤機率
  <pre><code>public static void misprediction(int pre[], int inp[]) { // 計算錯誤機率
 		float count = 0;
 		float mis = 0;
