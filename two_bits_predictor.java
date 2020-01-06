@@ -74,10 +74,7 @@ public class two_bits_predictor {
 
 	}
 
-	private static int[] hisseri() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	// 以下為函式區段
 
