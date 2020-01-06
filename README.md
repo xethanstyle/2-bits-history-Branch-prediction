@@ -1,6 +1,6 @@
 # two_bits_predictor
 ## 1.本程式為實作2 bits history分支預測器
-* 使用語言 Java
+* 使用語言 Java(JRE JavaSE-12)
 * 開發及編譯工具 Eclipse
 * 輸入方式 
  <br/>  1.使用者自行輸入序列 T、N
