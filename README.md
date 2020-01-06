@@ -10,3 +10,74 @@
  ## 2.執行結果參考如下
 ![image](3.jpg "執行結果")
  ## 3.程式說明
+  public class two_bits_predictor {
+	public static void main(String[] args) {// TODO Auto-generated method stub
+
+		Scanner sc = new Scanner(System.in);
+
+		int input[] = inputSeri(sc); // input陣列為使用者輸入Taken或Not taken
+		if (input[0] != 2) {
+			int pre_list[] = new int[input.length]; // pre_list陣列為系統預測Taken或Not taken
+			int state[] = stateSeri(sc); // state陣列為使用者輸入4個狀態初始設定
+			if (state[0] != 4) {
+				System.out.print("您輸入的state初始狀態為: ");
+				for (int k = 0; k < state.length; k++) // 列印state
+					Sta2string(state[k]);
+				System.out.println("\n");
+				int history[] = hisSeri(sc);
+				if (history[0] != 2) {
+					System.out.println();
+					System.out.println("                                   系統運作如下");
+					System.out.println("------------------------------------------------");
+					System.out.println("        history" + "\t" + "          狀態             預測值   輸入值" + "\n");
+					for (int x = 0; x < input.length; x++) { // 由輸入Taken or Not taken序列，取得連串2-bit history
+						System.out.print("第" + (x + 1) + "個預測:" + "  ");
+
+						if (x == 0) {
+							for (int j = 0; j < history.length; j++)
+								System.out.print(history[j]);
+							System.out.print("\t");
+							for (int k = 0; k < state.length; k++)
+								Sta2string(state[k]);
+							System.out.print("  ");
+							pre_list[x] = predict_2(history, state);
+							System.out.print("    ");
+							input2string(input[x]);
+							System.out.print("\n");
+							continue;
+						} else {
+							state[modify_at(history)] = state[modify_at(history)]
+									+ modify_sta(pre_list[x - 1], input[x - 1]);
+
+							for (int k = 0; k < state.length; k++) { // 檢查state狀態，不超過邊界值
+								if (state[k] > 3)
+									state[k] = 3;
+								else if (state[k] < 0)
+									state[k] = 0;
+							}
+							history = his_next(history, input[x - 1]); // 更新history
+							for (int j = 0; j < history.length; j++) // 列印history
+								System.out.print(history[j]);
+							System.out.print("\t");
+							for (int k = 0; k < state.length; k++) // 列印state
+								Sta2string(state[k]);
+							System.out.print("  ");
+							pre_list[x] = predict_2(history, state); // 將每次的預測值寫入陣列
+							System.out.print("    ");
+							input2string(input[x]); // 列印input
+							System.out.print("\n");
+						}
+
+					}
+
+					System.out.println("------------------------------------------------");
+					misprediction(pre_list, input);
+				} else
+					System.out.println("請重新執行程式!!");
+
+			} else
+				System.out.println("請重新執行程式!!");
+		} else
+			System.out.println("請重新執行程式!!");
+
+	}
