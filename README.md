@@ -83,4 +83,22 @@
 			System.out.println("請重新執行程式!!");
 
 	}</code></pre>
- * 程式5行:為主程式，負責設定使用者提供之初始變數，如輸入T、N序列、SN初始狀態及History等，完成後將上述變數，傳入Method運算，並列印相關排版文字及線條。
+ * Method "inputSeri" (81~98行):取得使用者輸入T或N，並儲存至input陣列
+ <pre><code>public static int[] inputSeri(Scanner scan) { // 取得使用者輸入T或N，並儲存至input陣列
+		System.out.println("請輸入T、N序列:");
+		String s = scan.next().toUpperCase();
+		System.out.println("您輸入的字串為:" + s + "\n");
+		int[] input = new int[s.length()];
+		for (int j = 0; j < s.length(); j++) { // 設定
+			if ((s.charAt(j) == 'T'))
+				input[j] = 1;
+			else if ((s.charAt(j) == 'N'))
+				input[j] = 0;
+			else {
+				System.out.println("您輸入字串錯誤!!");
+				input[0] = 2;
+				break;
+			}
+		}
+		return input;
+	}</code></pre>
