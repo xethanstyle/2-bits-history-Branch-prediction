@@ -11,12 +11,10 @@
 ![image](3.jpg "執行結果")
  ## 3.程式說明
  * 程式5~75行:為主程式，負責設定使用者提供之初始變數，如輸T、N入序列、SN初始狀態及History等，完成後將上述變數，傳入Method運算，並列印
-   
-  public class two_bits_predictor {
-	public static void main(String[] args) {// TODO Auto-generated method stub
-
+    
+   public class two_bits_predictor {
+	public static void main(String[] args)
 		Scanner sc = new Scanner(System.in);
-
 		int input[] = inputSeri(sc); // input陣列為使用者輸入Taken或Not taken
 		if (input[0] != 2) {
 			int pre_list[] = new int[input.length]; // pre_list陣列為系統預測Taken或Not taken
