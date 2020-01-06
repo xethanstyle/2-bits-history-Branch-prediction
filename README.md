@@ -12,7 +12,7 @@
  ## 3.程式說明
  * 程式5~75行:為主程式，負責設定使用者提供之初始變數，如輸T、N入序列、SN初始狀態及History等，完成後將上述變數，傳入Method運算，並列印。        
    
-   public class two_bits_predictor {
+   <pre><code>public class two_bits_predictor {
 	public static void main(String[] args) {// TODO Auto-generated method stub
 
 		Scanner sc = new Scanner(System.in);
@@ -82,4 +82,4 @@
 		} else
 			System.out.println("請重新執行程式!!");
 
-	}
+	}</code></pre>
