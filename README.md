@@ -102,3 +102,20 @@
 		}
 		return input;
 	}</code></pre>
+* Method "stateSeri" (81~98行):取得使用者輸入state初始狀態，並儲存至state陣列
+ <pre><code>public static int[] stateSeri(Scanner scan) { // 取得使用者輸入state初始狀態，並儲存至state陣列
+		System.out.println("請輸入4個初始狀態: (提示SN請輸入0、WN請輸入1、WT請輸入2、ST請輸入3)");
+		int[] input = new int[4];
+		for (int i = 0; i < 4; i++) {
+			System.out.print("請輸入第" + (i + 1) + "個數字為:  ");
+			int s = scan.nextInt();
+			if (s < 4)
+				input[i] = s;
+			else {
+				System.out.println("您輸入範圍錯誤!!");
+				input[0] = 4;
+				break;
+			}
+		}
+		return input;
+	}</code></pre>
