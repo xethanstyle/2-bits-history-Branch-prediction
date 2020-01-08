@@ -1,4 +1,4 @@
-# 2 bits history predictor
+# 2 bits history Branch prediction
 ## 1.本程式為實作2 bits history分支預測器
 * 使用語言 Java(JRE JavaSE-12)
 * 開發及編譯工具 Eclipse
